@@ -1,0 +1,299 @@
+/* CSS Variables */
+:root {
+  --primary: #ddd;
+  --dark: #333;
+  --light: #fff;
+  --shadow: 0 1px 5px rgb(104, 104, 104, 0.8);
+}
+
+/* Main styles */
+html {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--dark);
+}
+
+body {
+  background-color: #ccc;
+  font-size: 16px;
+  margin: 1rem;
+  padding: 0;
+  line-height: 1.4;
+}
+
+/* Padding breakpoints */
+@media all and (min-width: 500px) {
+  body {
+    padding: 0 5%;
+  }
+}
+
+@media all and (min-width: 900px) {
+  body {
+    padding: 0 6%;
+  }
+}
+
+@media all and (min-width: 1024px) {
+  body {
+    padding: 0 6.5%;
+  }
+}
+
+@media all and (min-width: 1200px) {
+  body {
+    padding: 0 7%;
+  }
+}
+
+
+.wrapper {
+  width: 100%;
+  display: grid;
+  grid-gap: 20px;
+}
+
+.btn {
+  background-color: var(--dark);
+  color: var(--light);
+  padding: 0.6rem 1.3rem;
+  text-decoration: none;
+  border: 0;
+  margin-bottom: 3rem;
+}
+
+img {
+  max-width: 100%;
+}
+
+abbr {
+  text-decoration: none;
+}
+
+/* Navigation */
+.main-nav ul {
+  display: grid;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.main-nav a {
+  background-color: var(--primary);
+  display: block;
+  text-decoration: none;
+  padding: 0.8rem;
+  text-align: center;
+  color: var(--dark);
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  box-shadow: var(--shadow);
+}
+
+.main-nav a:hover {
+  background-color: var(--dark);
+  color: var(--light);
+}
+
+/* Top Container */
+.top-container{
+  display: grid;
+  grid-gap: 20px;
+  grid-template-areas:
+    'showcase showcase top-box-a'
+    'showcase showcase top-box-b';
+}
+
+/* Header */
+.showcase {
+  grid-area: showcase;
+  background: url(../images/snow-white-castle.jpg);
+  background-size: cover;
+  background-position: left;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 767px) {
+  .showcase {
+    background-position: left;
+  }
+}
+
+
+.showcase h1 {
+  font-size: 4rem;
+  margin-bottom: 0;
+  color: var(--light);
+  text-shadow: 2px 2px var(--dark);
+}
+
+.showcase p {
+  max-width: 900px;
+  font-size: 1.3rem;
+  margin-top: 0;
+  color: var(--light);
+  text-shadow: 2px 2px var(--dark);
+}
+
+.showcase a {
+  width: 10%;
+  min-width: 125px;
+}
+
+.top-box {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.top-box .price {
+  font-size: 2rem;
+}
+
+.top-box-a {
+  grid-area: top-box-a;
+}
+
+.top-box-b {
+  grid-area: top-box-b;
+}
+
+
+/* Boxes */
+.boxes {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.box {
+  background: var(--primary);
+  text-align: center;
+  padding: 1.5rem 2rem;
+  box-shadow: var(--shadow);
+}
+
+.white-castle {
+  margin: auto 0;
+}
+
+/* Info */
+.info {
+  background: var(--primary);
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 3rem;
+}
+
+.info p {
+  margin-bottom: 3rem;
+}
+
+/* Portfolio */
+
+.portfolio {
+  text-align: center;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 
+    "large top"
+    "large bottom";
+  margin: auto;
+}
+
+.portfolio img {
+  margin: auto;
+  width: 95%;
+  text-align: center;
+  justify-content: center;
+}
+
+.photo1 {
+  grid-area: large;
+}
+
+.photo2 {
+  grid-area: top;
+}
+
+.photo3 {
+  grid-area: bottom;
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+
+/* Footer */
+footer {
+  margin-top: 2rem;
+  background-color: var(--dark);
+  color: var(--light);
+  text-align: center;
+  padding: 1rem;
+}
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+.top-container {
+  grid-template-areas: 
+    'showcase showcase'
+    'top-box-a top-box-b';
+}
+
+.showcase h1 {
+  font-size: 2.5rem;
+}
+
+.main-nav ul {
+  grid-template-columns: 1fr;
+}
+
+.info {
+  grid-template-columns: 1fr;
+}
+
+.boxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+}
+
+@media (max-width: 500px) {
+  .top-container {
+    grid-template-areas: 
+      'showcase'
+      'top-box-a'
+      'top-box-b';
+  }
+
+  .boxes {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1440px) {
+  body {
+    padding: 0 7.5%;
+  }
+}
+
+@media (min-width: 1600px) {
+  body {
+    padding: 0 10.5%;
+  }
+}
+
+
+
